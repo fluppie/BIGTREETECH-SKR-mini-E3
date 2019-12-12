@@ -36,7 +36,10 @@
 #define FLASH_EEPROM_EMULATION
 #define EEPROM_PAGE_SIZE     uint16(0x800) // 2KB
 //#define EEPROM_START_ADDRESS uint32(0x8000000 + 256 * 1024 - 2 * EEPROM_PAGE_SIZE) //use for F103RC 
-#define EEPROM_START_ADDRESS uint32(0x8000000 + 256 * 2048 - 2 * EEPROM_PAGE_SIZE) //use for F103RE // Then eeprom emulation in flash will work, and it will sit at 0x0807D000 rather than 0x0803EA00. You only have to do this if our build is larger than 256KB-28KB-4KB = 224KB If using _USB you probably need it.
+//#define EEPROM_START_ADDRESS uint32(0x8000000 + 256 * 2048 - 2 * EEPROM_PAGE_SIZE) //use for F103RE // Then eeprom emulation in flash will work, and it will sit at 0x0807D000 rather than 0x0803EA00. You only have to do this if our build is larger than 256KB-28KB-4KB = 224KB If using _USB you probably need it.
+
+//Probeer 512KB te gebruiken
+#define EEPROM_START_ADDRESS uint32(0x8000000 + 512 * 1024 - 2 * EEPROM_PAGE_SIZE) //use for F103RE // Then eeprom emulation in flash will work, and it will sit at 0x0807D000 rather than 0x0803EA00. You only have to do this if our build is larger than 256KB-28KB-4KB = 224KB If using _USB you probably need it.
 
 #undef E2END
 #define E2END                (EEPROM_PAGE_SIZE - 1) // 2KB
